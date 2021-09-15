@@ -1,0 +1,32 @@
+html{
+    direction: rtl;
+}
+body{
+    text-align: right;
+}
+.navbar-collapse{
+    flex-grow: 0;
+}
+.form-check-input{
+    right: 245px;
+}
+
+@media(min-width: 769px){
+    .set{
+        width: 193px;
+    margin-right: 144px;
+}
+}
+
+@media(min-width: 990px){
+    .set{
+    width: 270px;
+    margin-right: 200px;
+}
+}
+@media(min-width: 1200px){
+    .set{
+    width: 330px;
+    margin-right: 240px;
+}
+}
