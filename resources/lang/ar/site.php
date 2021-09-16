@@ -249,6 +249,7 @@ will allow you to choose a new one."=> "نسيت كلمة المرور؟ لا ت
 "Gibraltar"=> "جبل طارق",
 "Go back"=> "عودة",
 "Go Home"=> "الرئيسية",
+"Go posts"=> "مقالات",
 "Go to page =>page"=> "الإنتقال إلى الصفحة =>page",
 "Great! You have accepted the invitation to join the =>team team."=> "رائع! لقد قبلت الدعوة للإنضمام إلى فريق =>team.",
 "Greece"=> "اليونان",
@@ -338,6 +339,7 @@ started. Subscription plans may be changed or cancelled at your convenience."=> 
 "Kyrgyzstan"=> "قيرغيزستان",
 "Lao People's Democratic Republic"=> "ﻻوس",
 "Last active"=> "آخر نشاط",
+"lang"=> "اللغات",
 "Last used"=> "آخر استخدام",
 "Latvia"=> "ﻻتفيا",
 "Leave"=> "مغادرة",
@@ -771,6 +773,7 @@ may retrieve this token from your phone's Google Authenticator application."=> "
 "Yearly"=> "سنوي",
 "Yemen"=> "اليمن",
 "Yes"=> "نعم",
+"You are logged in!"=> "انت مسجل دخول ",
 "You are already subscribed."=> "أنت مشترك مسبقاً.",
 "You are currently within your free trial period. Your trial will expire on =>date."=> "أنت الآن ضمن الفترة التجريبية
 المجانية. ستنتهي الفترة التجريبية الخاصة بك في =>date.",

@@ -1,32 +1,40 @@
-html{
+html {
     direction: rtl;
 }
-body{
+body {
     text-align: right;
 }
-.navbar-collapse{
+.navbar-collapse {
     flex-grow: 0;
 }
-.form-check-input{
+.form-check-input {
     right: 245px;
 }
+.lang {
+    list-style: none;
+}
 
-@media(min-width: 769px){
-    .set{
+@media (max-width: 769px) {
+    .hide {
+        display: none;
+    }
+}
+@media (min-width: 769px) {
+    .set {
         width: 193px;
-    margin-right: 144px;
-}
+        margin-right: 144px;
+    }
 }
 
-@media(min-width: 990px){
-    .set{
-    width: 270px;
-    margin-right: 200px;
+@media (min-width: 990px) {
+    .set {
+        width: 270px;
+        margin-right: 200px;
+    }
 }
-}
-@media(min-width: 1200px){
-    .set{
-    width: 330px;
-    margin-right: 240px;
-}
+@media (min-width: 1200px) {
+    .set {
+        width: 330px;
+        margin-right: 240px;
+    }
 }
