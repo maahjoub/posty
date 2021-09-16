@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Postcontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,9 @@ Route::group([
 	'middleware' => 'Mcamara\LaravelLocalization\Middleware\localeSessionRedirect', 'localizationRedirect', 'localeViewPath'
 ], function()
 {
-Route::get('/post', function () {
-    return view('posty.index');
-})->name('posts');
+Route::post('ckeditor/image_upload', 'App\Http\Controllers\CKEditorController@upload')->name('upload');
+Route::get('', function () {  return view('posty.all'); })->name('posts');
+Route::resource('post', Postcontroller::class);
 
 Auth::routes();
 

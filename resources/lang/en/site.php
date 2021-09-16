@@ -1,5 +1,12 @@
 <?php
 return [
+"categories"=> "categories",
+"category"=> "category",
+"works"=> "Recent Work",
+"Title"=> "Title",
+"content"=> "Post Content",
+"github"=> "Recent Work in github",
+"add new post"=> "add new post",
 "30 Days"=> "30 Days",
 "60 Days"=> "60 Days",
 "90 Days"=> "90 Days",
