@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Postcontroller;
+use App\Http\Controllers\FrontController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +22,11 @@ Route::group([
 ], function()
 {
 Route::post('ckeditor/image_upload', 'App\Http\Controllers\CKEditorController@upload')->name('upload');
-Route::get('', function () {  return view('posty.all'); })->name('posts');
+Route::get('', [FrontController::class, 'AllPost'])->name('allposts');
 Route::resource('post', Postcontroller::class);
 
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/{id}', [FrontController::class, 'Show'])->name('single');
 });

@@ -16,7 +16,7 @@
                     @endif
                 </div>
                 <div class="card-body">
-                    <form action="" method='POST'>
+                    <form action="{{ route('post.store')}}" method='POST'>
                         @csrf
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="inputGroup-sizing-default">@lang('site.Title')</span>
@@ -26,6 +26,7 @@
                             <span class="input-group-text">@lang('site.content')</span>
                             <textarea class="form-control body" id="content" name="body" aria-label="With textarea"></textarea>
                         </div>
+                        <button type="submit" class="btn btn-info btn-sm">@lang('site.save')</button>
                     </form>
                 </div>
             </div>

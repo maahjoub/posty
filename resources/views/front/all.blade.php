@@ -1,4 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.front')
+@include('layouts.includes.navbar')
 @section('content')
     <div class="container">
         <div class="row">
@@ -7,8 +8,8 @@
                     <h3>{{ $post->title}}</h3>
                     <p class="lead">
                         {!! Str::words($post->content, 20, '' ) !!}
-                        <a class="btn btn-primary btn-sm" href="{{ route('post.show', $post->id)}}"
-                        rel="noopener noreferrer">@lang('site.more') ....</a>
+                         <a class="btn btn-primary btn-sm" href="{{ route('single', $post->id )}}"
+                            rel="noopener noreferrer">@lang('site.more') ....</a>
                     </p>
                 </div>
             @endforeach

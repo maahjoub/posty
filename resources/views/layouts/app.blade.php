@@ -16,15 +16,13 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-
-    @if (App()->getLocale()==='ar')
-    <link href="{{ asset('css/stylertl.css') }}" rel="stylesheet">
-    @endif
+@if (App()->getLocale()==='en')
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+@else
+   <link href="{{ asset('css/stylertl.css') }}" rel="stylesheet">
+@endif
 </head>
 <body>
     <div id="app">
@@ -38,7 +36,10 @@
                         <a class="nav-link" href="{{ route('home') }}">@lang('site.Go Home') </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('posts') }}">@lang('site.Go posts') </a>
+                        <a class="nav-link" href="{{ route('post.index') }}">@lang('site.Go posts') </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('post.create') }}">@lang('site.create') </a>
                     </li>
                 </ul>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -52,7 +53,7 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @foreach ( LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                                 <li>
-                                    <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">{{ $properties['native']}}</a>
+                                    <a class="dropdown-item bg-light" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">{{ $properties['native']}}</a>
                                 </li>
                             @endforeach
                         </ul>
@@ -69,11 +70,11 @@
                                 </li>
                             @endif
 
-                            @if (Route::has('register'))
+                            {{-- @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">@lang('site.Register')</a>
                                 </li>
-                            @endif
+                            @endif --}}
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

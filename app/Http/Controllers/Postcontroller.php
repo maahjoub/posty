@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class Postcontroller extends Controller
@@ -11,9 +12,13 @@ class Postcontroller extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware(['auth']);
+    }
     public function index()
     {
-        return view('posty.index');
+        return view('posty.index')->with('posts', Post::all());
     }
 
     /**
@@ -25,7 +30,6 @@ class Postcontroller extends Controller
     {
         return view('posty.create');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -34,7 +38,16 @@ class Postcontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            "title"=> 'required',
+            "body"=> 'required',
+        ]);
+        $request->user()->posts()->create([
+            'title' => $request->title,
+            'content' => $request->body,
+        ]);
+        session()->flash('success', 'the post has added succesfuly');
+        return redirect(route('post.index'));
     }
 
     /**
@@ -45,7 +58,7 @@ class Postcontroller extends Controller
      */
     public function show($id)
     {
-        //
+        return view('posty.show')->with('posts', Post::all());
     }
 
     /**
