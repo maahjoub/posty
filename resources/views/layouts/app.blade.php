@@ -32,6 +32,7 @@
                     {{ config('app.name', 'posty') }}
                 </a>
                 <ul class="navbar-nav hide">
+                @auth
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('home') }}">@lang('site.Go Home') </a>
                     </li>
@@ -41,6 +42,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('post.create') }}">@lang('site.create') </a>
                     </li>
+                    @endauth
                 </ul>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

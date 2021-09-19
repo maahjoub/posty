@@ -9,12 +9,15 @@ return [
 "edite"=> "edit",
 "update"=> "update",
 "more"=> "reed more",
+"img"=> "image",
 "content"=> "Post Content",
 "github"=> "Recent Work in github",
 "add new post"=> "add new post",
 "30 Days"=> "30 Days",
 "60 Days"=> "60 Days",
 "90 Days"=> "90 Days",
+"Previous"=> "Previous",
+"next"=> "next",
 "=>amount Total"=> "=>amount Total",
 "=>days day trial"=> "=>days  day trial",
 "=>resource Details"=> "Details =>resource",
@@ -491,7 +494,6 @@ devices."=> "الرجاء إدخال كلمة المرور الخاصة بك ل�
 "Portugal"=> "البرتغال",
 "Press \/ to search"=> "اضغط \/ للبحث",
 "Preview"=> "معاينة",
-"Previous"=> "السابق",
 "Privacy Policy"=> "سياسة الخصوصية",
 "Profile"=> "الملف الشخصي",
 "Profile Information"=> "معلومات الملف الشخصي",

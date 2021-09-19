@@ -9,10 +9,13 @@ class FrontController extends Controller
 {
     public function AllPost()
     {
-        return view('front.all')->with('posts', Post::all());
+        $posts = Post::paginate(12);
+        return view('front.all', [
+            'posts' => $posts
+        ]);
     }
-    public function Show($id)
+    public function Show(Post $post)
     {
-        return view('front.single')->with('posts', Post::all());
+        return view('front.single')->with('posts', $post);
     }
 }

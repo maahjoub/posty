@@ -18,7 +18,11 @@ class Postcontroller extends Controller
     }
     public function index()
     {
-        return view('posty.index')->with('posts', Post::all());
+        $posts = Post::paginate(12);
+        return view('posty.index', [
+            'posts' => $posts
+        ]);
+        // return view('posty.index')->with('posts', Post::all());
     }
 
     /**
@@ -38,16 +42,25 @@ class Postcontroller extends Controller
      */
     public function store(Request $request)
     {
+            $filenamewithextension = $request->file('photo')->getClientOriginalName();
+            $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+            $extension = $request->file('photo')->getClientOriginalExtension();
+            $filenametostore = $filename.'_'.time().'.'.$extension;
+            $request->file('photo')->storeAs('public/image/posts', $filenametostore);
+
         $this->validate($request, [
             "title"=> 'required',
             "body"=> 'required',
+            "photo"=> 'required',
         ]);
         $request->user()->posts()->create([
             'title' => $request->title,
             'content' => $request->body,
+            'image' => $filenametostore
         ]);
         session()->flash('success', 'the post has added succesfuly');
         return redirect(route('post.index'));
+
     }
 
     /**
@@ -56,9 +69,9 @@ class Postcontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        return view('posty.show')->with('posts', Post::all());
+        return view('posty.show')->with('posts', $post);
     }
 
     /**
@@ -67,9 +80,9 @@ class Postcontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        return view('posty.create')->with('posts', $post);
     }
 
     /**
@@ -79,9 +92,9 @@ class Postcontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        dd($request);
     }
 
     /**

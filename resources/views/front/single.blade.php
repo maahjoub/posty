@@ -1,19 +1,18 @@
 @extends('layouts.front')
 @include('layouts.includes.navbar')
 @section('content')
-    <div class="container al-ju">
+   <div class="container al-ju">
         <div class="row">
             <div class="col-md-4">
                 sidebar
             </div>
-            @foreach ($posts as $post)
-                <div class="col-md-8">
-                    <h3>{{ $post->title}}</h3>
+                <div class="col-md-8 post-show">
+                    <h3>{{ $posts->title}}</h3>
+                    <img src="{{ asset('storage/image/posts').'/' .$posts->image}}" class=" img-thumbnail card-img-top img-fluid show-img" alt="{{$posts->title}}">
                     <p class="lead">
-                        {!! $post->content !!}
+                        {!! $posts->content !!}
                     </p>
                 </div>
-            @endforeach
         </div>
     </div>
 @endsection

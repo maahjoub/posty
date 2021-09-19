@@ -30,3 +30,4 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/{id}', [FrontController::class, 'Show'])->name('single');
 });
+Route::get('/', 'TestController@index');
