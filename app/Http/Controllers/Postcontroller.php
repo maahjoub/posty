@@ -92,9 +92,20 @@ class Postcontroller extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
-        dd($request);
+        $this->validate($request, [
+            "title"=> 'required',
+            "body"=> 'required',
+        ]);
+        $post = Post::find($id);
+        // $post->update($request->all());
+        $post->update([
+            'title' => $request->title,
+            'content' => $request->body,
+        ]);
+        session()->flash('success', 'the post has updated succesfuly');
+        return redirect(route('post.index'));
     }
 
     /**

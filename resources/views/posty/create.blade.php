@@ -18,6 +18,7 @@
                 <div class="card-body">
                     <form action=" {{ isset($posts) ? route('post.update', $posts->id) : route('post.store')}}" method='POST' enctype="multipart/form-data">
                         @csrf
+                        @if(isset($posts)) @method('PUT') @endif
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="inputGroup-sizing-default">@lang('site.Title')</span>
                             <input type="text" class="form-control" name="title" value = "{{ isset($posts) ? $posts->title : " " }}" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
