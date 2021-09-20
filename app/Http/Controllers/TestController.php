@@ -11,6 +11,6 @@ class TestController extends Controller
     {
     	$posts = Post::paginate(7);
 
-        return view('welcome',compact('posts'));
+        return view('front.all',compact('posts'));
     }
 }

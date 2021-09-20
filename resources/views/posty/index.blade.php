@@ -21,7 +21,11 @@
                         <div class="col-md-4 custom">
                             <div class="card post-card text-center" >
                                 <span class="card-title post-title">{{ $post->title}}
-                                     <a href="{{ route('post.edit' ,$post->id) }}"><i class="bi bi-pen-fill"></i></a>
+                                     <a class="btn btn-info btn-sm" href="{{ route('post.edit' ,$post->id) }}"><i class="bi bi-pen-fill"></i></a>
+                                     <form action="{{ route('post.destroy', $post->id) }}" method="post" style="display: inline-block">
+                                        {{ csrf_field() }} {{ method_field('delete') }}
+                                        <button type="submit" class="btn btn-danger delete btn-sm"><i class="bi bi-trash"></i></button>
+                                    </form>
                                 </span>
                                 <img src="@if (isset($post->image))
 

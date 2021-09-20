@@ -3,15 +3,17 @@
 @section('content')
  <div class="container">
         <div class="row">
-            <div class="col-md-3">
-                sidebar
+            <div class="col-md-3 ">
+                @include('layouts.includes.sidebar')
             </div>
             <div class ="col-md-9">
                 <div class="row">
                     @foreach ($posts as $post)
                         <div class="col-md-4 custom">
                             <div class="card post-card" >
-                                <img src="{{ asset('storage/image/posts').'/' .$post->image}}" class=" img-thumbnail card-img-top img-fluid post-img" alt="{{$post->title}}">
+                                <img src="@if (isset($post->image))
+                                {{asset('storage/image/posts').'/' .$post->image}} @else {{asset('storage/image/posts/defaut.png')}} @endif "
+                                 class=" img-thumbnail card-img-top img-fluid post-img" alt="{{$post->title}}">
                                 <span class=" post-title">
                                     {{ $post->title}}
                                 </span>
@@ -27,7 +29,6 @@
                             </div>
                         </div>
                     @endforeach
-                    {{-- {{ $posts->links()}} --}}
                     {{ $posts->links('vendor.pagination.custom') }}
                 </div>
             </div>

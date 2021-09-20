@@ -53,3 +53,13 @@
     justify-content: space-evenly;
     list-style: none;
 }
+.fixed-me {
+    position: fixed !important;
+}
+.search-img {
+    border-radius: 50%;
+    width: 70px;
+}
+.gab {
+    margin-bottom: 10px;
+}

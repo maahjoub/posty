@@ -26,8 +26,8 @@ Route::get('', [FrontController::class, 'AllPost'])->name('allposts');
 Route::resource('post', Postcontroller::class);
 
 Auth::routes();
-
+Route::get('/search/', 'App\Http\Controllers\FrontController@search')->name('search');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/{id}', [FrontController::class, 'Show'])->name('single');
+Route::get('single/{id}', [FrontController::class, 'Show'])->name('single');
 });
-Route::get('/', 'TestController@index');
+Route::get('/', 'App\Http\Controllers\TestController@index');
