@@ -18,7 +18,7 @@ class Postcontroller extends Controller
     }
     public function index()
     {
-        $posts = Post::paginate(12);
+        $posts = Post::with(['user', 'likes'])->paginate(12);
         return view('posty.index', [
             'posts' => $posts
         ]);

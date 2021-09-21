@@ -31,3 +31,5 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('single/{id}', [FrontController::class, 'Show'])->name('single');
 });
 Route::get('/', 'App\Http\Controllers\TestController@index');
+Route::post('single/{post}/likes', 'App\Http\Controllers\PostLikesController@store')->name('post.like');
+Route::delete('single/{post}/likes', 'App\Http\Controllers\PostLikesController@destroy')->name('post.like');

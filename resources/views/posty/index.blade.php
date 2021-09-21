@@ -1,21 +1,12 @@
 @extends('layouts.app')
-@push('style')
-	<style type="text/css">
-		.my-active span{
-			background-color: #5cb85c !important;
-			color: white !important;
-			border-color: #5cb85c !important;
-		}
-	</style>
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-@endpush
+@include('layouts.includes.sidebar')
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-2">
-                sidebar
+
             </div>
-            <div class ="col-md-10">
+            <div class ="col-md-9">
                 <div class="row">
                     @foreach ($posts as $post)
                         <div class="col-md-4 custom">
