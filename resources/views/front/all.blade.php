@@ -1,10 +1,11 @@
 @extends('layouts.front')
 @include('layouts.includes.navbar')
 @section('content')
+@include('layouts.includes.sidebar')
  <div class="container">
         <div class="row">
             <div class="col-md-3 ">
-                @include('layouts.includes.sidebar')
+
             </div>
             <div class ="col-md-9">
                 <div class="row">
@@ -34,4 +35,5 @@
             </div>
         </div>
     </div>
+    @include('layouts.includes.footer')
 @endsection

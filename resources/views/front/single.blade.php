@@ -1,10 +1,11 @@
 @extends('layouts.front')
 @include('layouts.includes.navbar')
 @section('content')
+@include('layouts.includes.sidebar')
    <div class="container al-ju">
         <div class="row">
             <div class="col-md-4">
-                sidebar
+                
             </div>
             <div class="col-md-8 post-show">
                 <h3>{{ $posts->title}}</h3>
@@ -18,5 +19,6 @@
             </div>
         </div>
     </div>
+    @include('layouts.includes.footer')
 @endsection
 

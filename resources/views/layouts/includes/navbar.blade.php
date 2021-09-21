@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark  bg-primary">
+<nav class="navbar navbar-expand-lg navbar-light  bg-light fixed-top margin-bottom">
         <div class="container">
         <div class="container-fluid">
         <a class="navbar-brand" href="#">{{ config('app.name') }}</a>

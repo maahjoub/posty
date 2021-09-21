@@ -55,6 +55,7 @@
 }
 .fixed-me {
     position: fixed !important;
+    margin: 0 25px;
 }
 .search-img {
     border-radius: 50%;
@@ -62,4 +63,35 @@
 }
 .gab {
     margin-bottom: 10px;
+}
+
+.zin {
+    z-index: -5;
+}
+.main {
+    margin-top: 50px;
+}
+
+.footer {
+    padding: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.ul-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    color: #b3b1b1;
+}
+.ul-info li {
+    margin: 2px 5px;
+}
+.copy,
+.my-info {
+    width: 50%;
 }

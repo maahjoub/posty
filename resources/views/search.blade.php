@@ -1,10 +1,11 @@
 @extends('layouts.front')
 @include('layouts.includes.navbar')
 @section('content')
+@include('layouts.includes.sidebar')
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
-            @include('layouts.includes.sidebar')
+        <div class="col-md-3 zin">
+
         </div>
         <div class="col-md-9">
             @if($posts->isNotEmpty())
@@ -32,5 +33,5 @@
         </div>
     </div>
 </div>
-
+@include('layouts.includes.footer')
 @endsection
