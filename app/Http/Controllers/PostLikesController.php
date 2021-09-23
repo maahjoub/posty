@@ -16,6 +16,10 @@ class PostLikesController extends Controller
        $like = $post->likes()->create([
             "user_id"=>$request->user()->id,
         ]);
+        return response()->json([
+            'status' => true,
+            'msg' => 'like!',
+        ]);
 
 
     }
@@ -25,7 +29,8 @@ class PostLikesController extends Controller
         $request->user()->likes()->where('post_id', $post->id)->delete();
 
         return response()->json([
-            'success' => 'Record deleted successfully!'
+            'status' => true,
+            'msg' => 'unlike!',
         ]);
     }
 }

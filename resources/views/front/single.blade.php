@@ -5,9 +5,12 @@
    <div class="container al-ju">
         <div class="row">
             <div class="col-md-4">
-                <div class="alert alert-success" style="display:none"></div>
+                
+
+                
             </div>
             <div class="col-md-8 post-show">
+            <div class="alert alert-success msg-btn" style="display:none"></div>
                 <h3>{{ $posts->title}}</h3>
                 <img src="@if (isset($post->image))
 
@@ -47,6 +50,14 @@
             jQuery(document).ready(function(e){
                 jQuery('#saveLike').click(function(e){
                 e.preventDefault();
+                let spanCount = document.getElementById('total-like');
+                let saveLike = document.getElementById('saveLike');
+                let unsaveLike = document.getElementById('unsaveLike');
+                let postlikecount = {{ $posts->likes->count()}} + 1 ;
+                postlikecount += '{{ Str::plural('like', $posts->likes->count())}}';
+                spanCount.innerHTML = postlikecount ;
+                saveLike.setAttribute("disabled", "disabled");
+                unsaveLike.setAttribute("disabled", "none");
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -61,35 +72,24 @@
                     data: {
                         user_id : {{auth()->user()->id}}
                     },
-                    success: function(result){
-                    getSelectedRow = function(val) {
-                    db.transaction(function(transaction) {
-                        transaction.executeSql('SELECT count(*) FROM likes where post_id = ?;',[parseInt(val)], selectedRowValues, errorHandler);
-
-                    });
-                    };
-                    selectedRowValues = function(transaction,results) {
-                    for(var i = 0; i < results.rows.length; i++){
-                        var row = results.rows.item(i);
-                        alert(row['post_id']);
-                        alert(row['post_id']);
-                    }
-                    };
+                    success: function(data){
+                        if (data.status == true) {
                         jQuery('.alert').show();
-                        jQuery('.alert').html(result.success);
+                        jQuery('.alert').html(data.msg);
+                        }
                     }});
-
-
-
                  });
-
-
-
-
-
                 jQuery("#unsaveLike").click(function(e){
                 var id = $(this).data("id");
                 e.preventDefault();
+                let spanCount = document.getElementById('total-like');
+                let unlike = document.getElementById('unsaveLike');
+                let savelike = document.getElementById('saveLike');
+                let postlikecount = {{ $posts->likes->count()}} - 1 ;
+                postlikecount += '{{ Str::plural('like', $posts->likes->count())}}';
+                spanCount.innerHTML = postlikecount ;
+                unlike.setAttribute("disabled", "disabled");
+                savelike.setAttribute("disabled", "none");
                 $.ajaxSetup({
                     headers: {
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -105,8 +105,12 @@
                     data: {
                         "post_id": id,
                     },
-                    success: function (){
-                        console.log("it Works");
+                    success: function (data){
+                        if (data.status == true) {
+                        jQuery('.alert').show();
+                        jQuery('.alert').html(data.msg);
+                        }
+                        
                     }
                 });
 

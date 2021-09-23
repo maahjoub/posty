@@ -127,3 +127,8 @@
     font-size: 11px;
     right: 368px;
 }
+.msg-btn{
+    position: fixed;
+    top: 50px;
+    right: 50px;
+}
