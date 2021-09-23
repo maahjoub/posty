@@ -4,13 +4,11 @@
 @include('layouts.includes.sidebar')
    <div class="container al-ju">
         <div class="row">
-            <div class="col-md-4">
-                
-
-                
+            <div class="col-md-4">    
             </div>
             <div class="col-md-8 post-show">
-            <div class="alert alert-success msg-btn" style="display:none"></div>
+            
+            <div class="alert alert-success msg-btn" style="display:none"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                 <h3>{{ $posts->title}}</h3>
                 <img src="@if (isset($post->image))
 
@@ -22,21 +20,22 @@
                 <div class="social">
                     <ul class="soc-links">
                         <span class="likes" id="total-like">{{ $posts->likes->count()}} {{ Str::plural('like', $posts->likes->count())}} </span>
-                        <form action=""  class="mr-1">
-                            @csrf
-                           <li>
-                                <button id="saveLike"  @if ($posts->likedBy(auth()->user()))disabled="disabled"
-                                @endif><i class="bi bi-hand-thumbs-up-fill"></i></button>
-                            </li>
-                        </form>
-                        {{-- {{ route('post.unlike', $posts->id)}} --}}
-                        <form action="" class="mr-1">
-                            @csrf
-                            @method('DELETE')
-                            <li><button  id="unsaveLike"  data-id="{{ $posts->id }}" @if (!$posts->likedBy(auth()->user()))disabled="disabled"
-                            @endif><i class="bi bi-hand-thumbs-down-fill"></i></button></li>
-                        </form>
-
+                        @auth
+                            <form action=""  class="mr-1">
+                                @csrf
+                            <li>
+                                    <button id="saveLike"  @if ($posts->likedBy(auth()->user()))disabled="disabled"
+                                    @endif><i class="bi bi-hand-thumbs-up-fill"></i></button>
+                                </li>
+                            </form>
+                            {{-- {{ route('post.unlike', $posts->id)}} --}}
+                            <form action="" class="mr-1">
+                                @csrf
+                                @method('DELETE')
+                                <li><button  id="unsaveLike"  data-id="{{ $posts->id }}" @if (!$posts->likedBy(auth()->user()))disabled="disabled"
+                                @endif><i class="bi bi-hand-thumbs-down-fill"></i></button></li>
+                            </form>
+                        @endauth
                     </ul>
                 </div>
             </div>
@@ -70,7 +69,8 @@
                     cache: false,
                     contentType: false,
                     data: {
-                        user_id : {{auth()->user()->id}}
+                         
+                        
                     },
                     success: function(data){
                         if (data.status == true) {

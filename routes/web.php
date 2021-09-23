@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Postcontroller;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,7 @@ Route::get('single/{id}', [FrontController::class, 'Show'])->name('single');
 Route::get('/', 'App\Http\Controllers\TestController@index');
 Route::post('single/{post}/likes', 'App\Http\Controllers\PostLikesController@store')->name('post.like');
 Route::delete('single/{post}/likes', 'App\Http\Controllers\PostLikesController@destroy')->name('post.like');
+
+
+Route::get('login/facebook', [LoginController::class, 'redirectTofacebook'])->name('login.facebooke');
+Route::get('login/facebook/callback', [LoginController::class, 'handlefacebookcallback']);
