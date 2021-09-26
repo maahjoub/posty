@@ -1,6 +1,6 @@
 @extends('layouts.front')
-@include('layouts.includes.navbar')
 @section('content')
+@include('layouts.includes.navbar')
 @include('layouts.includes.sidebar')
  <div class="container">
         <div class="row">

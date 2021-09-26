@@ -3,7 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Postcontroller;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\LoginController;
 
 /*
@@ -35,6 +38,11 @@ Route::get('/', 'App\Http\Controllers\TestController@index');
 Route::post('single/{post}/likes', 'App\Http\Controllers\PostLikesController@store')->name('post.like');
 Route::delete('single/{post}/likes', 'App\Http\Controllers\PostLikesController@destroy')->name('post.like');
 
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('roles', RoleController::class);
+    Route::resource('users', UserController::class);
+    Route::resource('profile', ProfileController::class);
+});
 
-Route::get('login/facebook', [LoginController::class, 'redirectTofacebook'])->name('login.facebooke');
-Route::get('login/facebook/callback', [LoginController::class, 'handlefacebookcallback']);
+// Route::get('login/facebook', [LoginController::class, 'redirectTofacebook'])->name('login.facebooke');
+// Route::get('login/facebook/callback', [LoginController::class, 'handlefacebookcallback']);

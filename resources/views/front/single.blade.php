@@ -1,13 +1,13 @@
 @extends('layouts.front')
-@include('layouts.includes.navbar')
 @section('content')
+@include('layouts.includes.navbar')
 @include('layouts.includes.sidebar')
    <div class="container al-ju">
         <div class="row">
-            <div class="col-md-4">    
+            <div class="col-md-4">
             </div>
             <div class="col-md-8 post-show">
-            
+
             <div class="alert alert-success msg-btn" style="display:none"><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>
                 <h3>{{ $posts->title}}</h3>
                 <img src="@if (isset($post->image))
@@ -17,8 +17,12 @@
                  <p class="lead">
                     {!! $posts->content !!}
                 </p>
+                <livewire:like />
                 <div class="social">
                     <ul class="soc-links">
+                        {{-- @include('livewire.like') --}}
+
+
                         <span class="likes" id="total-like">{{ $posts->likes->count()}} {{ Str::plural('like', $posts->likes->count())}} </span>
                         @auth
                             <form action=""  class="mr-1">
@@ -69,8 +73,8 @@
                     cache: false,
                     contentType: false,
                     data: {
-                         
-                        
+
+
                     },
                     success: function(data){
                         if (data.status == true) {
@@ -110,7 +114,7 @@
                         jQuery('.alert').show();
                         jQuery('.alert').html(data.msg);
                         }
-                        
+
                     }
                 });
 

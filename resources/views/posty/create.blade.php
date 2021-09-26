@@ -33,7 +33,7 @@
                                 {!! isset($posts) ? $posts->content : " " !!}
                             </textarea>
                         </div>
-                        <button type="submit" class="btn btn-info btn-sm"> @if($posts)  @lang('site.update')  @else  @lang('site.save')  @endif</button>
+                        <button type="submit" class="btn btn-info btn-sm"> @if(isset($posts))  @lang('site.update')  @else  @lang('site.save')  @endif</button>
                     </form>
                 </div>
             </div>

@@ -32,7 +32,7 @@ return [
     'facebook' => [
         'client_id' => env('FACEBOOK_CLIENT_ID'),
         'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
-        'redirect' => 'http://posty.test/en/login/facebook/callback',
+        'redirect' => 'https://posty.test/login/facebook/callback',
     ],
 
 ];

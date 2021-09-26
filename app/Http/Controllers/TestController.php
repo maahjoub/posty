@@ -13,4 +13,5 @@ class TestController extends Controller
 
         return view('front.all',compact('posts'));
     }
+
 }

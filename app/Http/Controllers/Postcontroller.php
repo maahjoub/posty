@@ -82,7 +82,8 @@ class Postcontroller extends Controller
      */
     public function edit(Post $post)
     {
-        return view('posty.create')->with('posts', $post);
+        $posts = Post::find($post);
+        return view('posty.create')->with('posts', $posts);
     }
 
     /**
